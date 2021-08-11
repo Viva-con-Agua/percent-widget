@@ -1,8 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
+import PercentWidget from './PercentWidget.vue?shadow'
+import wrap from '@vue/web-component-wrapper';
 
-Vue.config.productionTip = false
+const CustomElement = wrap(Vue, PercentWidget);
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+window.customElements.define('percent-widget', CustomElement);
