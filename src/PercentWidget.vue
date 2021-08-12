@@ -2,7 +2,7 @@
     <!-- Water Chart -->
     <figure class="piechart">
         <svg width="200" height="250">
-            <circle class="outer" :style="{'stroke-dashoffset': dashoffset}" transform="rotate(-90, 95, 95)" r="82" cy="92" cx="73"></circle>
+            <circle class="outer" :style="{'stroke-dashoffset': dashoffset}" transform="rotate(-90, 95, 95)" r="82" cy="92" cx="69"></circle>
         </svg>
         <figcaption>{{percent}}%</figcaption>
         <picture class="water">
@@ -19,7 +19,7 @@ export default {
     props: {
         percent: {
             type: Number,
-            defaults: 100
+            defaults: 0
         },
         icon: {
             type: String,
@@ -100,4 +100,10 @@ img, svg {
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
 }
+.piechart figcaption {
+    position: relative;
+    top: 230px;
+    background: white;
+}
+
 </style>
