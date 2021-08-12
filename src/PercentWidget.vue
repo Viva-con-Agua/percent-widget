@@ -48,7 +48,7 @@ export default {
     display: inline-block;
     color: #999;
     font-size: 20px;
-    top: 0px;
+    top: 20px;
     text-align: center;
 }
 figure {
@@ -99,11 +99,6 @@ img, svg {
     stroke-dashoffset: 534 !important;
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
-}
-.piechart figcaption {
-    position: relative;
-    top: 230px;
-    background: white;
 }
 
 </style>
