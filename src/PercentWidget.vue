@@ -1,25 +1,27 @@
 <template>
     <!-- Water Chart -->
     <figure class="piechart">
+        <div>
         <svg width="200" height="250">
-            <circle class="outer" :style="{'stroke-dashoffset': dashoffset}" transform="rotate(-90, 95, 95)" r="82" cy="92" cx="73"></circle>
-        </svg>
-        <figcaption>{{percent}}%</figcaption>
-        <picture class="water">
-        <source :srcset="link1" type="image/webp">
-        <source :srcset="link2" type="image/png">
-        <img :src="link3">
+            <circle class="outer" :style="{'stroke-dashoffset': dashoffset}" transform="rotate(-90, 95, 95)" r="82" style="stroke-dashoffset: 0px;" cy="94" cx="101">
+            </circle>
+        </svg>            <picture class="water">
+            <source :srcset="link1" type="image/webp">
+            <source :srcset="link2" type="image/png">
+            <img :src="link3">
         </picture>
+    </div>
+            <figcaption>{{percent}}%</figcaption>
     </figure>
 </template>
 
 <script>
 export default {
-    name: 'App',
+    name: 'PercentWidget',
     props: {
         percent: {
             type: Number,
-            defaults: 100
+            defaults: 0
         },
         icon: {
             type: String,
@@ -35,7 +37,7 @@ export default {
     },
     computed: {
         dashoffset: function() {
-            var offset = 5.34 * (100 - this.percent)
+            var offset = 5.34 * (100 - parseInt(this.percent))
             return parseInt(offset, 10)
         }
     },
@@ -48,7 +50,7 @@ export default {
     display: inline-block;
     color: #999;
     font-size: 20px;
-    top: 0px;
+    top: 20px;
     text-align: center;
 }
 figure {
@@ -58,7 +60,7 @@ figure {
 
 .piechart figcaption {
     position: relative;
-    top: 230px;
+    margin-top: 20px;
     background: white;
 }
 .piechart img {
@@ -70,8 +72,6 @@ figure {
 }
 .piechart svg {
     position: absolute;
-    top: 0;
-    left: 0;
 }
 svg {
     overflow: hidden;
@@ -100,4 +100,5 @@ img, svg {
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
 }
+
 </style>
