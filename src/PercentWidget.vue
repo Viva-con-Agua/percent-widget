@@ -2,10 +2,10 @@
     <!-- Water Chart -->
     <figure class="piechart">
         <div>
-            <svg width="185" height="185">
-<circle data-v-32e032df="" transform="rotate(-90, 95, 95)" r="82" class="outer" style="stroke-dashoffset: 0px;" cy="94" cx="101"></circle>
-            </svg>
-            <picture class="water">
+        <svg width="200" height="250">
+            <circle class="outer" :style="{'stroke-dashoffset': dashoffset}" transform="rotate(-90, 95, 95)" r="82" style="stroke-dashoffset: 0px;" cy="94" cx="101">
+            </circle>
+        </svg>            <picture class="water">
             <source :srcset="link1" type="image/webp">
             <source :srcset="link2" type="image/png">
             <img :src="link3">
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'App',
+    name: 'PercentWidget',
     props: {
         percent: {
             type: Number,
@@ -37,7 +37,7 @@ export default {
     },
     computed: {
         dashoffset: function() {
-            var offset = 5.34 * (100 - this.percent)
+            var offset = 5.34 * (100 - parseInt(this.percent))
             return parseInt(offset, 10)
         }
     },
